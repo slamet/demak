@@ -1,0 +1,23 @@
+<h4>Daftar Kelurahan</h4>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @subdistricts.each do |subdistrict| %>
+  <tr>
+    <td><%= subdistrict.name %></td>
+    <td><%= link_to 'Show', subdistrict, :class => 'button' %></td>
+    <td><%= link_to 'Edit', edit_subdistrict_path(subdistrict), :class => 'button' %></td>
+    <td><%= link_to 'Destroy', subdistrict, confirm: 'Are you sure?', :class => 'button danger', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Tambah Kelurahan', new_subdistrict_path, :class => 'button big' %>

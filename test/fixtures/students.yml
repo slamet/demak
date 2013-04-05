@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nis: MyString
+  name: MyString
+  birthdate: 2013-03-20
+  address: MyString
+  postcode: MyString
+  religion_id: 1
+
+two:
+  nis: MyString
+  name: MyString
+  birthdate: 2013-03-20
+  address: MyString
+  postcode: MyString
+  religion_id: 1

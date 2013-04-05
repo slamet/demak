@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SIMS</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jquery-1.7.1.min", "rails", "highcharts" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="#">SISTEM INFORMASI MANAJEMEN SEKOLAH</a>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li><%= link_to "Depan", root_path %></li>
+          
+          <% if user_signed_in? %>
+          <li><%= link_to "Siswa", students_path %></li>
+          <li><%= link_to "Pelajaran", '#' %></li>
+          <li><%= link_to "Kelas", '#' %></li>
+          <li><%= button_to 'Keluar', signout_path, :class => "button danger", method: :delete %><li>
+
+          <% else %>
+          <li><%= link_to "Masuk", signin_path %></li>
+
+ 
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+   
+    	<%= yield %>
+  
+    
+  </div>
+</div>
+
+<div id="t-footer" >
+		<div class="t-footer">
+			SISTEM INFORMASI MANAJEMEN SEKOLAH
+  <% if user_signed_in? %>
+   Signed in as <%= current_user.email %>. Not you? 
+    
+    
+  
+  <% end %>
+		</div>	
+  
+														
+	</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<h4>DAFTAR SISWA</h4>
+
+<table>
+  <tr>
+    <th>Nisn</th>
+    <th>Nama</th>
+    <th>Ttl</th>
+    <th>Alamat</th>
+    <th>Kodepos</th>
+    <th>Agama</th>
+    <th>Jender</th>
+    <th>Kota</th>
+    <th>Propinsi</th>
+    <th>Kecamatan</th>
+    <th>Kelurahan</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @students.each do |student| %>
+  <tr>
+    <td><%= student.nis %></td>
+    <td><%= student.name %></td>
+    <td><%= student.birthdate %></td>
+    <td><%= student.address %></td>
+    <td><%= student.postcode %></td>
+    <td><%= student.religion.name %></td>
+    <td><%= student.gender.name %></td>
+    <td><%= student.city.name %></td>
+    <td><%= student.province.name %></td>
+    <td><%= student.district.name %></td>
+    <td><%= student.subdistrict.name %></td>
+    <td><%= link_to 'Tampil', student, :class => "button" %></td>
+    <td><%= link_to 'Edit', edit_student_path(student), :class => "button" %></td>
+    <td><%= link_to 'Hapus', student, confirm: 'Are you sure?', :class => "button danger", method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Tambah Siswa', new_student_path, :class => "button big" %>
+
+<div id="students_chart" style="width: 560px; height: 300px;"></div>
+

@@ -1,0 +1,66 @@
+<%= form_for(@student) do |f| %>
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+      <% @student.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Nisn %><br />
+    <%= f.text_field :nis %>
+  </div>
+  <div class="field">
+    <%= f.label :nama %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :Ttl %><br />
+    <%= f.date_select :birthdate,
+      :start_year => 1980,
+             :end_year => Time.now.year,
+             :include_blank => true,
+             :order =>[:day, :month, :year]  %>
+  </div>
+  <div class="field">
+    <%= f.label :Alamat %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :Kodepos %><br />
+    <%= f.text_field :postcode %>
+  </div>
+  <div class="field">
+    <%= f.label :Agama %><br />
+    <%= f.collection_select :religion_id, Religion.all, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :Jender %><br />
+    <%= f.collection_select :gender_id, Gender.all, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :Kota %><br />
+    <%= f.collection_select :city_id, City.all, :id, :name %>
+  </div>
+   <div class="field">
+    <%= f.label :Propinsi %><br />
+    <%= f.collection_select :province_id, Province.all, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :Kecamatan %><br />
+    <%= f.collection_select :district_id, District.all, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :Kelurahan %><br />
+    <%= f.collection_select :subdistrict_id, Subdistrict.all, :id, :name %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit 'Simpan', :class => "button big" %>
+  </div>
+<% end %>

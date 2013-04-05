@@ -1,0 +1,23 @@
+<h1>Daftar Kota</h1>
+
+<table>
+  <tr>
+    <th>Nama Kota</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cities.each do |city| %>
+  <tr>
+    <td><%= city.name %></td>
+    <td><%= link_to 'Show', city, :class => "button" %></td>
+    <td><%= link_to 'Edit', edit_city_path(city), :class => "button"  %></td>
+    <td><%= link_to 'Destroy', city, confirm: 'Are you sure?', :class => "button danger" , method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Tambah Kota', new_city_path, :class => "button big" %>

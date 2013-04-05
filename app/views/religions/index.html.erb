@@ -1,0 +1,23 @@
+<h3>Daftar Agama</h3>
+
+<table>
+  <tr>
+    <th>Nama</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @religions.each do |religion| %>
+  <tr>
+    <td><%= religion.name %></td>
+    <td><%= link_to 'Tampil', religion, :class => "button" %></td>
+    <td><%= link_to 'Edit', edit_religion_path(religion), :class => "button"   %></td>
+    <td><%= link_to 'Hapus', religion, confirm: 'Are you sure?', :class => "button danger", method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Tambah Agama', new_religion_path, :class => "button big"%>

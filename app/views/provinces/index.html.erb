@@ -1,0 +1,23 @@
+<h4>Daftar Propinsi</h4>
+
+<table>
+  <tr>
+    <th>Nama</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @provinces.each do |province| %>
+  <tr>
+    <td><%= province.name %></td>
+    <td><%= link_to 'Tampil', province, :class => "button" %></td>
+    <td><%= link_to 'Edit', edit_province_path(province), :class => "button" %></td>
+    <td><%= link_to 'Hapus', province, confirm: 'Are you sure?', :class => "button danger", method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Tambah Propinsi', new_province_path, :class => "button big" %>

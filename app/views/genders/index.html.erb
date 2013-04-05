@@ -1,0 +1,23 @@
+<h4>Daftar Jender</h4>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @genders.each do |gender| %>
+  <tr>
+    <td><%= gender.name %></td>
+    <td><%= link_to 'Show', gender, :class => "button" %></td>
+    <td><%= link_to 'Edit', edit_gender_path(gender), :class => "button"  %></td>
+    <td><%= link_to 'Destroy', gender, confirm: 'Are you sure?', :class => "button",  method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Tambah Jender', new_gender_path, :class => "button big"  %>

@@ -10,6 +10,7 @@ gem 'rails', '3.2.1'
 gem 'pg'
 
 
+gem 'carrierwave'
 gem 'devise'
 gem 'email_spec'
 

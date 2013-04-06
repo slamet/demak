@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130405032027) do
+ActiveRecord::Schema.define(:version => 20130405123225) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(:version => 20130405032027) do
     t.date     "birthdate"
     t.string   "address"
     t.string   "postcode"
-    t.integer  "religion_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.integer  "city_id"
@@ -63,6 +62,8 @@ ActiveRecord::Schema.define(:version => 20130405032027) do
     t.integer  "gender_id"
     t.integer  "district_id"
     t.integer  "subdistrict_id"
+    t.string   "image"
+    t.integer  "religion_id"
   end
 
   create_table "subdistricts", :force => true do |t|

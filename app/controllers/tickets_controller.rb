@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+	before_filter :authenticate_user!, :except => [:index, :show]
 	before_filter :find_project
 	before_filter :find_ticket, :only => [:show,:edit,:update,:destroy]
 	
@@ -6,12 +7,29 @@ class TicketsController < ApplicationController
 		@ticket = @project.tickets.build
 	end
 
+	def edit
+	end
+
 	def show
 
 	end
+	def destroy
+		@ticket.destroy
+		flash[:notice] = "Ticket has been deleted."
+		redirect_to @project
+	end
+	def update
+		if @ticket.update_attributes(params[:ticket])
+		flash[:notice] = "Ticket has been updated."
+		redirect_to [@project, @ticket]
+	else
+		flash[:alert] = "Ticket has not been updated."
+		render :action => "edit"
+	end
+	end
 
 	def create
-		@ticket = @project.tickets.build(params[:ticket])
+		@ticket = @project.tickets.build(params[:ticket].merge!(:user => current_user))
 		if @ticket.save
 		flash[:notice] = "Ticket has been created."
 		redirect_to [@project, @ticket]

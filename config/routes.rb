@@ -1,3 +1,4 @@
+
 Aplikasi::Application.routes.draw do
   get "users/index"
 
@@ -12,6 +13,7 @@ end
 resources :projects do
   resources :tickets
 end
+
   
 namespace :admin do
   root :to => "base#index"

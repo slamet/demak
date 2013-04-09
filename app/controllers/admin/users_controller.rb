@@ -6,6 +6,7 @@ class Admin::UsersController < Admin::BaseController
   	@users = User.all(:order => "email")
   end
 
+
  def destroy
 if @user == current_user
 flash[:alert] = "You cannot delete yourself!"

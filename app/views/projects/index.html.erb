@@ -3,4 +3,8 @@
 <% @projects.each do |project| %>
 <li><%= link_to project.name, project %></li>
 <% end %>
+
+<%= admins_only do %>
+<%= link_to "proyek baru", new_project_path, :class => "button big" %>
+<% end %>
 </ul>

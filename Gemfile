@@ -8,12 +8,12 @@ gem 'rails', '3.2.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-
+gem 'dynamic_form'
 
 gem 'carrierwave'
 gem 'devise'
 gem 'email_spec'
-
+gem 'better_errors'
 group :test do
 	gem 'cucumber-rails'
 	gem 'rspec-rails'

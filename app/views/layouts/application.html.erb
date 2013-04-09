@@ -4,6 +4,7 @@
   <title>SIMS</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= stylesheet_link_tag    "gh-buttons", :media => "all" %>
+  <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "jquery-1.7.1.min", "rails", "highcharts" %>
   <%= csrf_meta_tags %>
@@ -26,14 +27,18 @@
           
           <% if user_signed_in? %>
           <li><%= link_to "Siswa", students_path %></li>
+          <li><%= link_to "Proyek", projects_path %></li>
           <li><%= link_to "Pelajaran", '#' %></li>
           <li><%= link_to "Kelas", '#' %></li>
           <li><%= button_to 'Keluar', signout_path, :class => "button danger", method: :delete %><li>
-
+            
           <% else %>
           <li><%= link_to "Masuk", signin_path %></li>
 
  
+          <% end %>
+          <%= admins_only do %>
+          <li><%= link_to "Admin", admin_root_path %><br></li>
           <% end %>
         </ul>
       </div>

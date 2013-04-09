@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show, :index]
+  before_filter :authorize_admin!, :except => [:show, :index]
+  before_filter :authenticate_user!, :only => [:show, :index]
   # GET /students
   # GET /students.json
   def index
